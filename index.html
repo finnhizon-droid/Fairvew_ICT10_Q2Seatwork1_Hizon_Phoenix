@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seatwork 1</title>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+
+    <!-- STYLING (CSS) ALL MADE BY GEMINI AI -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #0d47a1;
+            --bg-color: #f0f2f5;
+            --text-color: #333;
+            --container-bg: #ffffff;
+            --success-bg: #e8f5e9;
+            --success-text: #2e7d32;
+            --failure-bg: #ffebee;
+            --failure-text: #c62828;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .bball_emoji {
+            font-size: 2.8rem;
+            margin-bottom: 5px;
+        }
+
+        h1 {
+            font-weight: 600;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 4px;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+
+        .box {
+            background-color: var(--container-bg);
+            width: 380px;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .input {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(13, 71, 161, 0.15);
+        }
+
+        .button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1e88e5 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: opacity 0.2s, transform 0.1s;
+            margin-top: 10px;
+        }
+
+        .button:hover {
+            opacity: 0.9;
+        }
+
+        .button:active {
+            transform: scale(0.98);
+        }
+
+        #result {
+            margin-top: 25px;
+            font-size: 0.9rem;
+            min-height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            text-align: center;
+            padding: 8px;
+        }
+
+        .member-found {
+            background-color: var(--success-bg);
+            color: var(--success-text);
+            border: 1px solid #c3e6cb;
+            font-weight: 600;
+        }
+
+        .member-not-found {
+            background-color: var(--failure-bg);
+            color: var(--failure-text);
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+    <!-- PROMPTS: 
+    1. style my code using css and put a good font for the texts
+    2. put the title outside the box
+    -->
+
+</head>
+
+<body>
+
+    <div class="header">
+        <p class="bball_emoji">🏀</p>
+        <h1>ICT Club Verification</h1>
+        <p class="subtitle">Basketball Varsity Roster Check</p>
+    </div>
+
+    <br>
+
+    <div class="box">
+        <div class="input">
+            <label for="first_name">First Name</label>
+            <input type="text" id="first_name" placeholder="Ex. Phoenix" required>
+        </div>
+
+        <div class="input">
+            <label for="last_name">Last Name</label>
+            <input type="text" id="last_name" placeholder="Ex. Hizon">
+        </div>
+
+        <button class="button" py-click="verify">Check Membership</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script type="py" src="main.py"></script>
+
+</body>
+</html>
